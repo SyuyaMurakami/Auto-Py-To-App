@@ -117,7 +117,7 @@ def run():
 
     # If the user has asked for the version, print it, otherwise run the application
     if args.version:
-        print('auto-py-to-exe ' + __version__)
+        print('auto-py-to-app ' + __version__)
     else:
         logging_level = getattr(logging, args.logging_level)
         start_ui(logging_level, args.build_directory_override)
