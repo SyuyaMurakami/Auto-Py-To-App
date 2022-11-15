@@ -1,9 +1,9 @@
 const options_ignored = ['help','version','replace_paths','optimize_flag'];
-const options_static = ['script','icon', 'target_dir', 'filenames'];
-const options_overridden = ['specpath', 'distpath', 'workpath', 'noconfirm'];
+const options_static = ['script','icon', 'target_dir', 'filenames','include_files'];
+const options_overridden = [];
 
 const options_inputTypeFile = ['script','init_script','base_name','icon','manifest','bin_includes','bin_excludes','include_files','zip_includes', 'manifest'];
-const options_inputTypeDirectory = ['shortcut_dir','target_dir','default_path','include_path','bin_path_includes','bin_path_excludes'];
+const options_inputTypeDirectory = ['shortcut_dir','target_dir','default_path','include_path','bin_path_includes','bin_path_excludes','include_files'];
 const options_inputTypeDoubleFileDest = ['datas', 'binaries'];
 const options_inputTypeDoubleDirectoryDest = ['datas'];
 const options_inputTypeMultipleInput = ['excludes','includes','packages','default_path','include_path','bin_includes','bin_excludes','bin_path_includes','bin_path_excludes','include_files','zip_includes','zip_include_packages'];
@@ -16,7 +16,7 @@ const advancedSections = [
     },
     {
         titleI18nPath: 'dynamic.title.whatToBundleWhereToSearch',
-        options: ['excludes','includes','packages','default_path','include_path','bin_includes','bin_excludes','bin_path_includes','bin_path_excludes','include_files','zip_includes','zip_include_packages','zip_exclude_packages']
+        options: ['excludes','includes','packages','default_path','include_path','bin_includes','bin_excludes','bin_path_includes','bin_path_excludes','zip_includes','zip_include_packages','zip_exclude_packages']
     },
     {
         titleI18nPath: 'dynamic.title.windowsSpecificOptions',

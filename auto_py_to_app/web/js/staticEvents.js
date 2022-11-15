@@ -171,10 +171,14 @@ const setupEvents = () => {
         document.getElementById('entry-target').value = value;
         targetLocationChange({ target: document.getElementById('entry-target') });
     };
-    const setAdditionalFile = (value) => {
+    const setAdditionalFileOfDoubleInput = (value) => {
         const datasListNode = document.getElementById('datas-list');
         const [val1, val2] = value.split(pathSeparator);
         addDoubleInputForSrcDst(datasListNode, 'datas', val1, val2, true, true);
+    };
+    const setAdditionalFileOfInput = (value) => {
+        const datasListNode = document.getElementById('datas-list');
+        addInputForSrcDst(datasListNode, 'include_files', value, '.', true, true);
     };
     const setIcon = (value) => {
         document.getElementById('icon-path').value = value;
@@ -182,7 +186,7 @@ const setupEvents = () => {
     };
     configurationSetters['filenames'] = setEntryScript;
     configurationSetters['target_dir'] = setEntryTarget;
-    configurationSetters['datas'] = setAdditionalFile;
+    configurationSetters['include_files'] = setAdditionalFileOfInput;
     configurationSetters['icon'] = setIcon;
 
     configurationCleaners.push(() => setEntryScript('')); // filenames
