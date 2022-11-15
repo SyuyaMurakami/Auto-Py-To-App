@@ -41,8 +41,13 @@ const getCurrentCommand = (withTargetPath = true) => {
     const currentConfiguration = getCurrentConfiguration();
 
     // Match configuration values with the correct flags
-    filterFunc = withTargetPath ? c => c.optionDest !== 'filenames' : c=> (c.optionDest !== 'filenames' && c.optionDest !== 'target_dir')
-    const optionsAndValues = currentConfiguration.filter(filterFunc).map(c => {
+    filterFunc = withTargetPath ? c => c.optionDest !== 'filenames' : c=> (c.optionDest !== 'filenames' && c.optionDest !== 'target_dir');
+    const optionsAndValuesAfterFilter = currentConfiguration.filter(filterFunc);
+    const optionsAndValuesDest = optionsAndValuesAfterFilter.map(c => c.optionDest);
+    const optionsAndValuesDestDuplicates = optionsAndValuesDest.filter((c,i)=>optionsAndValuesDest.indexOf(c)!==optionsAndValuesDest.lastIndexOf(c) && optionsAndValuesDest.indexOf(c)===i);
+    const optionsAndValuesUnique = optionsAndValuesAfterFilter.filter(c => optionsAndValuesDestDuplicates.indexOf(c.optionDest)===-1);
+
+    const optionsAndValuesUniqueFormat = optionsAndValuesUnique.map(c => {
         // Identify the options
         const option = options.find(o => o.dest === c.optionDest);
 
@@ -60,11 +65,32 @@ const getCurrentCommand = (withTargetPath = true) => {
         }
     }).filter(x => x !== null);
 
+    const optionsAndValuesDuplicatesFormat = optionsAndValuesDestDuplicates.map(d => {
+        // Identify the options
+        const optionsDuplicate = optionsAndValuesAfterFilter.filter(o=>o.optionDest===d);
+        const option = options.find(o => o.dest === d);
+        const optionFlag = chooseOptionString(option.option_strings);
+        const seperatedOptionCommand = optionsDuplicate.map(c => {
+            if (option.nargs === 0) {
+                // For switches, there are some switches for false switches that we can use
+                const potentialOption = options.find(o => o.dest === c.optionDest && o.const === c.value);
+                if (potentialOption !== undefined) {
+                    return chooseOptionString(potentialOption.option_strings);
+                } else {
+                    return null; // If there is no alternate option, skip it as it won't be required
+                }
+            } else {
+                return `"${c.value}"`;
+            }
+        });
+        return `${optionFlag} ${seperatedOptionCommand.join(',')}`;
+    }).filter(x => x !== null);
+
     // Identify the entry script provided
     const entryScriptConfig = currentConfiguration.find(c => c.optionDest === 'filenames');
     const entryScript = entryScriptConfig === undefined ? "" : entryScriptConfig.value;
 
-    return `cxfreeze "${entryScript}" ${optionsAndValues.join(' ')} ${getNonCxFreezeConfiguration().manualArguments}`;
+    return `cxfreeze "${entryScript}" ${optionsAndValuesUniqueFormat.join(' ')} ${optionsAndValuesDuplicatesFormat.join(' ')} ${getNonCxFreezeConfiguration().manualArguments}`;
 };
 
 const updateCurrentCommandDisplay = () => {

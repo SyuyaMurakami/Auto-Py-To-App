@@ -32,14 +32,6 @@ const targetLocationSearch = async (event) => {
     }
 };
 
-const outputDirectorySearch = async (event) => {
-    const folder = await askForFolder();
-    if (folder !== '') {
-        const outputDirectoryInput = document.getElementById('entry-target');
-        outputDirectoryInput.value = folder;
-    }
-};
-
 const iconLocationChange = async (event) => {
     colourInput(event.target, true, true, false);
     updateCurrentCommandDisplay();
@@ -177,7 +169,7 @@ const setupEvents = () => {
     };
     const setEntryTarget = (value) => {
         document.getElementById('entry-target').value = value;
-        scriptLocationChange({ target: document.getElementById('entry-target') });
+        targetLocationChange({ target: document.getElementById('entry-target') });
     };
     const setAdditionalFile = (value) => {
         const datasListNode = document.getElementById('datas-list');
