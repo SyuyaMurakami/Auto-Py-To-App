@@ -1,4 +1,4 @@
-const options_ignored = ['help','version','replace_paths','optimize_flag'];
+const options_ignored = ['help','version','replace_paths','optimize'];
 const options_static = ['script','icon', 'target_dir', 'filenames','include_files'];
 const options_overridden = [];
 
