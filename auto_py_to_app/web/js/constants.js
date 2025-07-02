@@ -1,8 +1,8 @@
 const options_ignored = ['help','version','replace_paths','optimize'];
-const options_static = ['script','icon', 'target_dir', 'filenames','include_files'];
+const options_static = ['command','script','icon', 'target_dir', 'filenames','include_files'];
 const options_overridden = [];
 
-const options_inputTypeFile = ['script','init_script','base_name','icon','manifest','bin_includes','bin_excludes','include_files','zip_includes', 'manifest'];
+const options_inputTypeFile = ['command','script','init_script','base_name','icon','manifest','bin_includes','bin_excludes','include_files','zip_includes', 'manifest'];
 const options_inputTypeDirectory = ['shortcut_dir','target_dir','default_path','include_path','bin_path_includes','bin_path_excludes','include_files'];
 const options_inputTypeDoubleFileDest = ['datas', 'binaries'];
 const options_inputTypeDoubleDirectoryDest = ['datas'];
