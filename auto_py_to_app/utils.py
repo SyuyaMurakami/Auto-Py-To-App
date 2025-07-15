@@ -134,7 +134,7 @@ def get_warnings():
         pass  # Dev branches will have cxfreeze_version as a string in the form X.Y.devZ+HASH. Ignore it if this is the case.
 
     # Make sure we are not using Python from the Windows Store
-    if "Packages\PythonSoftwareFoundation.Python." in sys.executable:
+    if r"Packages\PythonSoftwareFoundation.Python." in sys.executable:
         message = 'It looks like you may be using Python from the Windows Store, the Python binary you are currently using is at:'
         message += '"' + sys.executable + '"'
         message += '\n\nPython from the Windows Store is not supported by cx_Freeze, you may receive some error.'

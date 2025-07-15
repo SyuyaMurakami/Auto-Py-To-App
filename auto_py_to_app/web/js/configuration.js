@@ -90,7 +90,7 @@ const getCurrentCommand = (withTargetPath = true) => {
     const entryScriptConfig = currentConfiguration.find(c => c.optionDest === 'filenames');
     const entryScript = entryScriptConfig === undefined ? "" : entryScriptConfig.value;
 
-    return `cxfreeze "${entryScript}" ${optionsAndValuesUniqueFormat.join(' ')} ${optionsAndValuesDuplicatesFormat.join(' ')} ${getNonCxFreezeConfiguration().manualArguments}`;
+    return `cxfreeze --script "${entryScript}" ${optionsAndValuesUniqueFormat.join(' ')} ${optionsAndValuesDuplicatesFormat.join(' ')} ${getNonCxFreezeConfiguration().manualArguments}`;
 };
 
 const updateCurrentCommandDisplay = () => {
@@ -98,5 +98,5 @@ const updateCurrentCommandDisplay = () => {
 };
 
 const isCommandDefault = () => {
-    return getCurrentCommand() === 'cxfreeze ""  ';
+    return getCurrentCommand() === 'cxfreeze --script ""  ';
 }

@@ -14,10 +14,10 @@ const advancedSections = [
         titleI18nPath: 'dynamic.title.generalOptions',
         options: ['init_script','base_name','target_name','compress','silent']
     },
-    {
-        titleI18nPath: 'dynamic.title.whatToBundleWhereToSearch',
-        options: ['excludes','includes','packages','default_path','include_path','bin_includes','bin_excludes','bin_path_includes','bin_path_excludes','zip_includes','zip_include_packages','zip_exclude_packages']
-    },
+    // {
+    //     titleI18nPath: 'dynamic.title.whatToBundleWhereToSearch',
+    //     options: ['excludes','includes','packages','default_path','include_path','bin_includes','bin_excludes','bin_path_includes','bin_path_excludes','zip_includes','zip_include_packages','zip_exclude_packages']
+    // },
     {
         titleI18nPath: 'dynamic.title.windowsSpecificOptions',
         options: ['manifest','copyright','trademarks', 'uac_admin', 'include_msvcr', 'shortcut_name','shortcut_dir']

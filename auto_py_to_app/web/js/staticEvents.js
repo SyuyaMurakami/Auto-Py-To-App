@@ -136,10 +136,10 @@ const setupEvents = () => {
     document.getElementById('icon-path').addEventListener('input', iconLocationChange);
     document.getElementById('icon-path-search').addEventListener('click', iconLocationSearch);
 
-    // Additional files
-    document.getElementById('additional-files-add-files-button').addEventListener('click', additionalFilesAddFiles);
-    document.getElementById('additional-files-add-folder').addEventListener('click', additionalFilesAddFolder);
-    document.getElementById('additional-files-add-blank').addEventListener('click', additionalFilesAddBlank);
+    // // Additional files
+    // document.getElementById('additional-files-add-files-button').addEventListener('click', additionalFilesAddFiles);
+    // document.getElementById('additional-files-add-folder').addEventListener('click', additionalFilesAddFolder);
+    // document.getElementById('additional-files-add-blank').addEventListener('click', additionalFilesAddBlank);
 
     // Settings
     document.getElementById('recursion-limit-switch').addEventListener('click', e => recursionLimitToggle(e.target.classList.contains('unselected')));
