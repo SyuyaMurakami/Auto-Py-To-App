@@ -50,19 +50,28 @@
                     <a href="https://github.com/SyuyaMurakami/Auto-Py-To-App" target="_blank"><img src="/favicon.ico" /></a>
                     <a href="https://github.com/SyuyaMurakami/Auto-Py-To-App" target="_blank"><h1>Auto Py to App</h1></a>
                 </div>
-                <div class="extra-links">
-                    <a href="https://github.com/SyuyaMurakami/Auto-Py-To-App" target="_blank">
-                        GitHub
-                        <img src="https://github.githubassets.com/favicons/favicon.png" alt="GitHub favicon" />
-                    </a>
-                    <a href="https://github.com/SyuyaMurakami/Auto-Py-To-App/issues" target="_blank">
-                        <span data-i18n="ui.links.helpPost">Help Post</span>
-                        <img src="/GitHub_Logo.png" alt="Github logo" />
-                    </a>
-                    <span>
-                        <label for="language-selection"><small>Language: </small></label>
+                <div>
+                    <div class="extra-links">
+                        <a href="https://github.com/SyuyaMurakami/Auto-Py-To-App" target="_blank">
+                            GitHub
+                            <img src="https://github.githubassets.com/favicons/favicon.png" alt="GitHub favicon" />
+                        </a>
+                        <a href="https://github.com/SyuyaMurakami/Auto-Py-To-App/issues" target="_blank">
+                            <span data-i18n="ui.links.helpPost">Help Post</span>
+                            <img id="github-logo" src="/GitHub_Logo_Black.png" alt="Github logo" />
+                        </a>
+                    </div>
+                    <div class="ui-config">
+                        <label for="language-selection">
+                          <small data-i18n="ui.title.language">Language</small><small>:</small>
+                        </label>
                         <select id="language-selection"></select>
-                    </span>
+
+                        <span id="theme-toggle">
+                          <img src="img/sun.svg" id="on-dark-theme-button" style="display: none" />
+                          <img src="img/moon.svg" id="on-light-theme-button" style="display: inline" />
+                        </span>
+                    </div>
                 </div>
             </div>
 

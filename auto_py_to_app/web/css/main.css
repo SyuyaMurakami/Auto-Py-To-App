@@ -66,13 +66,27 @@
     margin-top: 4px;
 }
 
-#header .extra-links #language-selection {
-    margin-top: 4px;
-    padding: 0 6px;
+#header .ui-config {
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  justify-content: flex-end;
 }
 
-#language-selection {
-    max-width: 200px;
+#header .ui-config [for='language-selection'] {
+  line-height: 0;
+}
+
+#header .ui-config #language-selection {
+  padding: 0 6px;
+}
+
+#header .ui-config #theme-toggle {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  height: 18px;
 }
 
 /* Warnings */

@@ -471,3 +471,33 @@ const setupLanguageSelection = () => {
     });
     languageSelectNode.value = currentLanguage;
 };
+
+// Toggle theme (triggered by clicking moon or sun)
+const _toggleTheme = () => {
+  const root = document.querySelector('body');
+  const onDarkThemeButton = document.querySelector('#on-dark-theme-button');
+  const onLightThemeButton = document.querySelector('#on-light-theme-button');
+  const githubLogo = document.querySelector('#github-logo');
+
+  if (root.classList.contains('dark-theme')) {
+    onLightThemeButton.style.display = 'inline';
+    onDarkThemeButton.style.display = 'none';
+    githubLogo.src = '/GitHub_Logo_Black.png';
+  } else {
+    // dark
+    onLightThemeButton.style.display = 'none';
+    onDarkThemeButton.style.display = 'inline';
+    githubLogo.src = '/GitHub_Logo_White.png';
+  }
+
+  root.classList.toggle('dark-theme');
+};
+
+// Check if user's default color scheme is dark
+const setupTheme = () => {
+  document.getElementById('theme-toggle').addEventListener('click', _toggleTheme);
+
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    _toggleTheme();
+  }
+};
